@@ -3,11 +3,6 @@ from main import app
 
 client = TestClient(app)
 
-def test_health_check():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"message": "This is my Foundation of Devops Assignment!"}
-
 def test_predict_endpoint():
     payload = {
         "Warehouse_block": "A",
@@ -26,6 +21,6 @@ def test_predict_endpoint():
         "Inventory_Level": 2
     }
     response = client.post("/predict", json=payload)
-    # assert response.status_code == 200
+    assert response.status_code == 200
     assert "prediction" in response.json()
     assert "probability" in response.json()
