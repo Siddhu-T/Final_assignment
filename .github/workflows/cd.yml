@@ -21,7 +21,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest test_main.py --junitxml=test-results.xml
+          pytest test.py --junitxml=test-results.xml
         
       # - name: Upload Test Results
       #   uses: actions/upload-artifact@v3
